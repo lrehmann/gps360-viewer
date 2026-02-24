@@ -10,6 +10,14 @@ This project includes:
 It targets macOS on Apple Silicon and reads NMEA over a USB serial port (`/dev/cu.*`).
 If no serial node is present, it can read directly from the Prolific USB device.
 
+## Downloads
+
+- App (Apple Silicon macOS): [gps360-viewer-macos-apple-silicon-v0.3.0.zip](https://github.com/lrehmann/gps360-viewer/releases/download/v0.3.0/gps360-viewer-macos-apple-silicon-v0.3.0.zip)
+- App checksum: [gps360-viewer-macos-apple-silicon-v0.3.0.zip.sha256](https://github.com/lrehmann/gps360-viewer/releases/download/v0.3.0/gps360-viewer-macos-apple-silicon-v0.3.0.zip.sha256)
+- Source bundle: [gps360-source-v0.3.0.zip](https://github.com/lrehmann/gps360-viewer/releases/download/v0.3.0/gps360-source-v0.3.0.zip)
+- Source checksum: [gps360-source-v0.3.0.zip.sha256](https://github.com/lrehmann/gps360-viewer/releases/download/v0.3.0/gps360-source-v0.3.0.zip.sha256)
+- Release page: [v0.3.0](https://github.com/lrehmann/gps360-viewer/releases/tag/v0.3.0)
+
 ## Hardware variants and IDs
 
 This codebase targets the same hardware family commonly sold/listed as:
@@ -47,6 +55,16 @@ Notes:
 - OpenStreetMap tiles require internet access.
 - The app is unsigned/not notarized by default. On first launch, use Finder "Open" (context menu) or clear quarantine:
   - `xattr -dr com.apple.quarantine "GPS360 Viewer.app"`
+
+If macOS says `"GPS360 Viewer" is damaged and can't be opened` after download:
+
+```bash
+xattr -dr com.apple.quarantine "/path/to/GPS360 Viewer.app"
+codesign --force --deep --sign - "/path/to/GPS360 Viewer.app"
+open "/path/to/GPS360 Viewer.app"
+```
+
+To eliminate this for end users, sign with a Developer ID cert and notarize releases.
 
 ## Release packaging
 
