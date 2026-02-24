@@ -18,6 +18,9 @@ If no serial node is present, it can read directly from the Prolific USB device.
 - Source checksum: [gps360-source-v0.3.0.zip.sha256](https://github.com/lrehmann/gps360-viewer/releases/download/v0.3.0/gps360-source-v0.3.0.zip.sha256)
 - Release page: [v0.3.0](https://github.com/lrehmann/gps360-viewer/releases/tag/v0.3.0)
 
+![GPS360 Viewer screenshot](app-screenshot.png)
+*GPS360 Viewer on macOS.*
+
 ## Hardware variants and IDs
 
 This codebase targets the same hardware family commonly sold/listed as:
@@ -53,10 +56,15 @@ Notes:
   - `/usr/bin/python3`
 - The app uses bundled `libusb` when available; otherwise install it with Homebrew (`brew install libusb`).
 - OpenStreetMap tiles require internet access.
-- The app is unsigned/not notarized by default. On first launch, use Finder "Open" (context menu) or clear quarantine:
-  - `xattr -dr com.apple.quarantine "GPS360 Viewer.app"`
+- The app is unsigned/not notarized by default.
 
 If macOS says `"GPS360 Viewer" is damaged and can't be opened` after download:
+
+1. Open **System Settings** -> **Privacy & Security**
+2. Scroll to the Security section and click **Open Anyway** for `GPS360 Viewer`
+3. Confirm by clicking **Open** in the follow-up dialog
+
+If needed, fallback terminal method:
 
 ```bash
 xattr -dr com.apple.quarantine "/path/to/GPS360 Viewer.app"
