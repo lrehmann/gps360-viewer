@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Build and runtime artifacts
+GPS360 Viewer.app/
+dist/
+captures/
+
+# Local logs and temp files
+*.log
+*.tmp
+
+# Editor
+.vscode/
+.idea/

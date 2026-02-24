@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gps360-macos"
+version = "0.3.0"
+description = "User-space driver and CLI for Pharos Microsoft GPS-360 on macOS"
+requires-python = ">=3.9"
+
+[project.scripts]
+gps360 = "gps360.app:main"
+gps360-usb-bridge = "gps360.usb_bridge:main"
+gps360-gui = "gps360.web_app:main"
+gps360-sirf-probe = "gps360.sirf_probe:main"
